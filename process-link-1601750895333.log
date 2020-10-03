@@ -1,0 +1,15 @@
+Process
+=======
+link
+
+Command Line
+============
+gcc /Users/poralexc/Documents/Kotlin/nativeImageTrials/build/client/x86_64-darwin/gvm/nativeImageTrials/AppDelegate.o /Users/poralexc/Documents/Kotlin/nativeImageTrials/build/client/x86_64-darwin/gvm/nativeImageTrials/launcher.o /Users/poralexc/Documents/Kotlin/nativeImageTrials/build/client/x86_64-darwin/gvm/tmp/SVM-1601750724628/mainkt.o -ljava -lnio -lzip -lnet -lprefs -lj2pkcs11 -lfdlibm -lsunec -lextnet -lffi -ljvm -llibchelper -ldarwin -lpthread -lz -ldl -lstdc++ -lobjc -Wl,-framework,Foundation -Wl,-framework,AppKit -Wl,-framework,ApplicationServices -Wl,-framework,OpenGL -Wl,-framework,QuartzCore -Wl,-framework,Security -Wl,-force_load,/Users/poralexc/.gluon/substrate/javafxStaticSdk/15-ea+gvm22/darwin-x86_64/sdk/lib/libglass.a -Wl,-force_load,/Users/poralexc/.gluon/substrate/javafxStaticSdk/15-ea+gvm22/darwin-x86_64/sdk/lib/libjavafx_font.a -Wl,-force_load,/Users/poralexc/.gluon/substrate/javafxStaticSdk/15-ea+gvm22/darwin-x86_64/sdk/lib/libjavafx_iio.a -Wl,-force_load,/Users/poralexc/.gluon/substrate/javafxStaticSdk/15-ea+gvm22/darwin-x86_64/sdk/lib/libprism_es2.a -o /Users/poralexc/Documents/Kotlin/nativeImageTrials/build/client/x86_64-darwin/nativeImageTrials -L/Users/poralexc/.gluon/substrate/javafxStaticSdk/15-ea+gvm22/darwin-x86_64/sdk/lib -L/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.3.0-dev/Contents/Home/lib/svm/clibraries/darwin-amd64 -L/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.3.0-dev/Contents/Home/lib/static/darwin-amd64
+
+Output
+======
+
+
+Result
+======
+result: 0

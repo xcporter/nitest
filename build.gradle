@@ -1,0 +1,73 @@
+
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'com.gluonhq.client-gradle-plugin' version '0.1.31'
+    id 'application'
+}
+
+group 'org.example.imageTest'
+version '1.0-SNAPSHOT'
+mainClassName = "MainKt"
+def jfxversion = "11"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "no.tornado:tornadofx:1.7.20"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.3.5"
+    compile "org.openjfx:javafx-base:${jfxversion}:win"
+    compile "org.openjfx:javafx-graphics:${jfxversion}:win"
+    compile "org.openjfx:javafx-controls:${jfxversion}:win"
+    compile "org.openjfx:javafx-media:${jfxversion}:win"
+    compile "org.openjfx:javafx-fxml:${jfxversion}:win"
+    compile "org.openjfx:javafx-base:${jfxversion}:mac"
+    compile "org.openjfx:javafx-graphics:${jfxversion}:mac"
+    compile "org.openjfx:javafx-controls:${jfxversion}:mac"
+    compile "org.openjfx:javafx-media:${jfxversion}:mac"
+    compile "org.openjfx:javafx-fxml:${jfxversion}:mac"
+    compile "org.openjfx:javafx-base:${jfxversion}:linux"
+    compile "org.openjfx:javafx-graphics:${jfxversion}:linux"
+    compile "org.openjfx:javafx-controls:${jfxversion}:linux"
+    compile "org.openjfx:javafx-media:${jfxversion}:linux"
+    compile "org.openjfx:javafx-fxml:${jfxversion}:linux"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+gluonClient {
+    reflectionList = [
+            "MainApp",
+            "MainView",
+            "SoundGen"
+    ]
+
+    compilerArgs = [
+            "--allow-incomplete-classpath",
+            "--enable-all-security-services",
+            "-H:IncludeResourceBundles=tornadofx/i18n/ViewModel",
+            "-H:IncludeResourceBundles=tornadofx/i18n/Wizard",
+            "-H:ConfigurationResourceRoots=META_INF/native-image",
+    ]
+}
+
+jar {
+    baseName 'nativeImageTest'
+    manifest {
+        attributes "Main-Class": "MainKt"
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+}

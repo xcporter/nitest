@@ -48,23 +48,19 @@ compileTestKotlin {
 gluonClient {
     reflectionList = [
             "MainApp",
-            "MainView",
-            "SoundGen"
+            "MainView"
     ]
 
     compilerArgs = [
             "--allow-incomplete-classpath",
             "--enable-all-security-services",
-            "-H:IncludeResourceBundles=tornadofx/i18n/ViewModel",
-            "-H:IncludeResourceBundles=tornadofx/i18n/Wizard",
-            "-H:ConfigurationResourceRoots=META_INF/native-image",
     ]
 }
 
 jar {
     baseName 'nativeImageTest'
     manifest {
-        attributes "Main-Class": "MainKt"
+        attributes "Main-Class" : "MainKt"
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
